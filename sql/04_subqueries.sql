@@ -12,12 +12,12 @@ where total_spend > (select avg(total_spend) from xyz);
 select employee_name , salary 
   
 from employees 
-where salary>(select avg(salary) from employees)
+where salary>(select avg(salary) from employees);
   
 -- Q3. Find products whose price is greater than the average product price.
 select product_name
   from products
-where price > (select avg(price) as avg_price from products)
+where price > (select avg(price) as avg_price from products);
 -- Q4. Find the customer who placed the highest-value order.
 with customer_spend as (select c.customer_name,c.customer_id , max(o.amount) as total_value
   from customers c 
@@ -27,7 +27,7 @@ with customer_spend as (select c.customer_name,c.customer_id , max(o.amount) as 
 select customer_name ,customer_id,total_value
   from customer_spend 
 order by total_value desc
-  limit 1
+  limit 1;
 -- Q5. Find employees whose salary is greater than the average salary of their own department.
 with xyz as(select e.employee_id,e.employee_name,d.deparmtent_id,e.salary,d.department_name,
  avg(e.salary) over(partiton by d.department_id ) as dept_avg
@@ -36,6 +36,6 @@ with xyz as(select e.employee_id,e.employee_name,d.deparmtent_id,e.salary,d.depa
   on 
   e.department_id=d.department_id)
     select employee_id,employee_name,department_id,salary ,department_name from xyz
-  where salary>dept_avg
+  where salary>dept_avg;
   
   
