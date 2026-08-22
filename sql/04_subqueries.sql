@@ -29,4 +29,13 @@ select customer_name ,customer_id,total_value
 order by total_value desc
   limit 1
 -- Q5. Find employees whose salary is greater than the average salary of their own department.
-with 
+with xyz as(select e.employee_id,e.employee_name,d.deparmtent_id,e.salary,d.department_name,
+ avg(e.salary) over(partiton by d.department_id ) as dept_avg
+  from employees e
+  join deparments d
+  on 
+  e.department_id=d.department_id)
+    select employee_id,employee_name,department_id,salary ,department_name from xyz
+  where salary>dept_avg
+  
+  
