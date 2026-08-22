@@ -39,20 +39,28 @@ The main objectives of this project are:
 ## 📁 Project Structure
 
 ```text
+## Project Structure
+
 Advanced-SQL-Business-Analysis-Project/
 │
 ├── README.md
+├── LICENSE
 │
 ├── data/
-│   ├── raw_data.csv
-│   └── cleaned_data.csv
+│   ├── customers.csv
+│   ├── departments.csv
+│   ├── employees.csv
+│   ├── orders.csv
+│   └── products.csv
 │
-├── sql/
-│   ├── 01_database_setup.sql
-│   ├── 02_data_cleaning.sql
-│   ├── 03_basic_analysis.sql
-│   ├── 04_advanced_analysis.sql
-│   └── 05_business_insights.sql
+|── sql/
+|   ├── 01_database_setup.sql
+|    ├── 02_basic_analysis.sql
+|    ├── 03_joins.sql
+|    ├── 04_subqueries.sql
+|   ├── 05_ctes.sql
+|    ├── 06_window_functions.sql
+|   └── 07_business_analysis.sql
 │
 ├── analysis/
 │   └── business_insights.md
