@@ -8,7 +8,8 @@ join
 orders o
 on c.customer_id=o.customer_id
 group by c.customer_name
-order by total_spending
+order by total_spending desc
+  limit 10
 -- Q2. Product Performance
 -- Identify the top 10 products based on total revenue.
 -- Show product name, category, units sold, and total revenue.
