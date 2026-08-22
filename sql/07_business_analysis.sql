@@ -2,8 +2,13 @@
 -- Identify the top 10 customers based on their total spending.
 -- Show customer name, total orders, total quantity purchased,
 -- and total spending.
-
-
+select c.customer_name,count(o.quantity) as total_quantity ,sum(o.amount) as total_spending
+from customers c
+join 
+orders o
+on c.customer_id=o.customer_id
+group by c.customer_name
+order by total_spending
 -- Q2. Product Performance
 -- Identify the top 10 products based on total revenue.
 -- Show product name, category, units sold, and total revenue.
