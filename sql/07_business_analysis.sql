@@ -2,7 +2,7 @@
 -- Identify the top 10 customers based on their total spending.
 -- Show customer name, total orders, total quantity purchased,
 -- and total spending.
-select c.customer_name,count(o.quantity) as total_quantity ,sum(o.amount) as total_spending
+select c.customer_name,sum(o.quantity) as total_quantity ,sum(o.amount) as total_spending,count(order_id) as total_orders
 from customers c
 join 
 orders o
